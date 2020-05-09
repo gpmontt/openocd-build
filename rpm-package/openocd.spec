@@ -92,5 +92,5 @@ chrpath --delete %{buildroot}/%{_bindir}/openocd
 %{_mandir}/man1/*
 
 %changelog
-
-See upstream OpenOCD project,
+* Thu May 08 2020 Raphael Lehmann <raphael+openocdbuild@rleh.de> - HEAD
+- Build from OpenOCDs git HEAD. See upstream OpenOCD project for changelog.

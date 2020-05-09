@@ -28,10 +28,10 @@ debugging.
 
 sed -i 's/MODE=.*/TAG+="uaccess"/' contrib/60-openocd.rules
 
-%build
-pushd src/jtag/drivers/OpenULINK
-make PREFIX=sdcc hex
-popd
+#%build
+#pushd src/jtag/drivers/OpenULINK
+#make PREFIX=sdcc hex
+#popd
 
 %configure \
   --disable-werror \

@@ -7,8 +7,8 @@ License:    GPLv2
 URL:        http://sourceforge.net/projects/openocd
 Source0:    openocd.zip
 
-BuildRequires:  gcc
-BuildRequires:  chrpath, libftdi-devel, libusbx-devel, jimtcl-devel, hidapi-devel, sdcc, libusb-devel, texinfo, libjaylink-devel
+#BuildRequires:  gcc
+#BuildRequires:  chrpath, libftdi-devel, libusbx-devel, jimtcl-devel, hidapi-devel, sdcc, libusb-devel, texinfo, libjaylink-devel
 
 %description
 The Open On-Chip Debugger (OpenOCD) provides debugging, in-system programming 
@@ -92,5 +92,5 @@ chrpath --delete %{buildroot}/%{_bindir}/openocd
 %{_mandir}/man1/*
 
 %changelog
-* Thu May 08 2020 Raphael Lehmann <raphael+openocdbuild@rleh.de> - HEAD
+* Fri May 08 2020 Raphael Lehmann <raphael+openocdbuild@rleh.de> - HEAD
 - Build from OpenOCDs git HEAD. See upstream OpenOCD project for changelog.

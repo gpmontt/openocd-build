@@ -111,6 +111,9 @@ jobs:
        libhidapi-dev libftdi-dev
        sudo apt-get -y install rpm
 
+    - name: Check out repository
+      uses: actions/checkout@v2
+
     - name: Prepare RPM build
       run: |
        mkdir -p ~/rpmbuild/SOURCES ~/rpmbuild/SPECS ~/rpmbuild/BUILD

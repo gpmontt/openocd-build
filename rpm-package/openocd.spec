@@ -5,7 +5,7 @@ Summary:    Debugging, in-system programming and boundary-scan testing for embed
 
 License:    GPLv2
 URL:        http://sourceforge.net/projects/openocd
-Source0:    openocd.zip
+Source0:    %{name}-%{version}.zip
 
 #BuildRequires:  gcc
 #BuildRequires:  chrpath, libftdi-devel, libusbx-devel, jimtcl-devel, hidapi-devel, sdcc, libusb-devel, texinfo, libjaylink-devel

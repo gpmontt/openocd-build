@@ -21,10 +21,10 @@ debugging.
 %prep
 %setup -q
 
-pushd doc
-iconv -f iso8859-1 -t utf-8 openocd.info > openocd.info.conv
-mv -f openocd.info.conv openocd.info
-popd
+#pushd doc
+#iconv -f iso8859-1 -t utf-8 openocd.info > openocd.info.conv
+#mv -f openocd.info.conv openocd.info
+#popd
 
 sed -i 's/MODE=.*/TAG+="uaccess"/' contrib/60-openocd.rules
 

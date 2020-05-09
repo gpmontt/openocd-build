@@ -8,7 +8,7 @@ URL:        http://sourceforge.net/projects/openocd
 Source0:    %{name}-%{version}.zip
 
 #BuildRequires:  gcc
-#BuildRequires:  chrpath, libftdi-devel, libusbx-devel, jimtcl-devel, hidapi-devel, sdcc, libusb-devel, texinfo, libjaylink-devel
+#BuildRequires:  chrpath, libftdi-devel, libusbx-devel, jimtcl-devel, hidapi-devel, sdcc, libusb-devel, texinfo, libjaylink-devel, libtool, make
 
 %description
 The Open On-Chip Debugger (OpenOCD) provides debugging, in-system programming 
@@ -21,17 +21,7 @@ debugging.
 %prep
 %setup -q
 
-#pushd doc
-#iconv -f iso8859-1 -t utf-8 openocd.info > openocd.info.conv
-#mv -f openocd.info.conv openocd.info
-#popd
-
 sed -i 's/MODE=.*/TAG+="uaccess"/' contrib/60-openocd.rules
-
-#%build
-#pushd src/jtag/drivers/OpenULINK
-#make PREFIX=sdcc hex
-#popd
 
 %configure \
   --disable-werror \

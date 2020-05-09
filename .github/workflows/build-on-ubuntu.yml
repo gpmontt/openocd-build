@@ -102,6 +102,12 @@ jobs:
        echo "::set-env name=VERSION::$VERSION_TMP"
        echo $VERSION
 
+    - name: Build Version
+      run: |
+       export VERSION_TMP="$(date +'%Y%m%d.%H%M')"
+       echo "::set-env name=VERSION::$VERSION_TMP"
+       echo $VERSION
+
     - name: Setup build environment
       run: |
        sudo apt-get update
@@ -119,9 +125,16 @@ jobs:
        mkdir -p ~/rpmbuild/SOURCES ~/rpmbuild/SPECS ~/rpmbuild/BUILD
        cp rpm-package/openocd.spec ~/rpmbuild/SPECS/openocd.spec
        sed -i s/VERSION/${{ env.VERSION }}/g ~/rpmbuild/SPECS/openocd.spec
-       (cd ~/rpmbuild/SOURCES && wget -O openocd-master.zip https://github.com/ntfreak/openocd/archive/master.zip)
+       (git clone --depth=1 https://github.com/ntfreak/openocd.git openocd-master && cd openocd-master/ && ./bootstrap)
+       zip -r ~/rpmbuild/SOURCES/openocd-master.zip openocd-master
 
     - name: Build RPM from spec file
       run: |
        (cd ~/rpmbuild/SPECS && rpmbuild -ba openocd.spec)
        ls ~/rpmbuild/BUILD
+
+    - name: RPM package artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: rpm-package
+        path: rpmbuild/RPMS/x86_64/openocd-master-{{ env.VERSION }}.x86_64.rpm

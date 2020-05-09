@@ -119,7 +119,7 @@ jobs:
        mkdir -p ~/rpmbuild/SOURCES ~/rpmbuild/SPECS ~/rpmbuild/BUILD
        cp rpm-package/openocd.spec ~/rpmbuild/SPECS/openocd.spec
        sed -i s/VERSION/${{ env.VERSION }}/g ~/rpmbuild/SPECS/openocd.spec
-       (cd ~/rpmbuild/SOURCES && wget -O openocd-HEAD.zip https://github.com/ntfreak/openocd/archive/master.zip)
+       (cd ~/rpmbuild/SOURCES && wget -O openocd-master.zip https://github.com/ntfreak/openocd/archive/master.zip)
 
     - name: Build RPM from spec file
       run: |

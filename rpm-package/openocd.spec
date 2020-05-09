@@ -1,5 +1,5 @@
 Name:       openocd
-Version:    HEAD
+Version:    master
 Release:    VERSION
 Summary:    Debugging, in-system programming and boundary-scan testing for embedded devices
 
@@ -92,5 +92,5 @@ chrpath --delete %{buildroot}/%{_bindir}/openocd
 %{_mandir}/man1/*
 
 %changelog
-* Fri May 08 2020 Raphael Lehmann <raphael+openocdbuild@rleh.de> - HEAD
-- Build from OpenOCDs git HEAD. See upstream OpenOCD project for changelog.
+* Fri May 08 2020 Raphael Lehmann <raphael+openocdbuild@rleh.de> - master
+- Build from OpenOCDs git master. See upstream OpenOCD project for changelog.
